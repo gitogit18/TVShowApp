@@ -3,7 +3,8 @@ package com.example.tvshowapp.model
 class ShowRepository(
     private val api: TvMazeApi
 ) {
-    suspend fun getShows(): list<Show> {
+    private var shouldFail = true
+    suspend fun getShows(): List<Show> {
         return api.getShows()
     }
 

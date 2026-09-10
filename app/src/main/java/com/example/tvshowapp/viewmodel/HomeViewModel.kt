@@ -1,6 +1,6 @@
 package com.example.tvshowapp.viewmodel
 
-import android.util.Log
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -39,13 +39,6 @@ class HomeViewModel(
             try {
                 val shows = repository.getShows()
 
-                shows.forEach { show ->
-                    Log.d(
-                        "TVAPP",
-                        "${show.name} -> rating = ${show.rating?.average}"
-                    )
-                }
-
                 val featured = shows
                     .sortedByDescending { it.rating?.average ?: 0.0 }
                     .take(5)
@@ -57,8 +50,6 @@ class HomeViewModel(
                     .sortedByDescending { it.premiered ?: "" }
 
                 val alphabetical = shows.sortedBy { it.name }
-
-                android.util.Log.d("HomeViewModel", "Featured: ${featured.size}, Highest: ${highestRated.size}")
 
                 uiState = UiState.Success(
                     HomeUiContent(

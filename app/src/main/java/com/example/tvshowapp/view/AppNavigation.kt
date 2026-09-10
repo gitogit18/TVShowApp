@@ -11,6 +11,9 @@ import com.example.tvshowapp.viewmodel.DetailViewModel
 import com.example.tvshowapp.viewmodel.DetailViewModelFactory
 import com.example.tvshowapp.viewmodel.HomeViewModel
 import com.example.tvshowapp.viewmodel.HomeViewModelFactory
+import android.content.Intent
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.text.HtmlCompat
 
 object Routes {
     const val HOME = "home"
@@ -59,6 +62,8 @@ fun AppNavigation() {
             route = Routes.DETAIL
         ) { backStackEntry ->
 
+            val context = LocalContext.current
+
             val showId = backStackEntry
                 .arguments
                 ?.getString("showId")
@@ -85,6 +90,32 @@ fun AppNavigation() {
                     onBack = {
                         navController.popBackStack()
                     },
+
+                    onShare = { show ->
+                        val cleanSummary = HtmlCompat.fromHtml(
+                            show.summary ?: "No summary available",
+                            HtmlCompat.FROM_HTML_MODE_LEGACY
+                        ).toString()
+
+                        val shareText = buildString {
+                            appendLine(show.name)
+                            appendLine()
+                            appendLine("Summary:")
+                            appendLine(cleanSummary)
+                            appendLine()
+                            appendLine("More information:")
+                            appendLine(show.url ?: "No URL available")
+                        }
+
+                        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_TEXT, shareText)
+                        }
+
+                        context.startActivity(
+                            Intent.createChooser(shareIntent, "Share TV Show")
+                        )
+                    }
 
                 )
             }

@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.tvshowapp.model.RetrofitInstance
 import com.example.tvshowapp.model.ShowRepository
 import com.example.tvshowapp.ui.theme.TVShowAppTheme
+import com.example.tvshowapp.view.AppNavigation
 import com.example.tvshowapp.view.HomeScreen
 import com.example.tvshowapp.viewmodel.HomeViewModel
 
@@ -23,35 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TVShowAppTheme {
-                HomeScreen(
-                    uiState = viewModel.uiState,
-
-                    onShowClick = { id ->
-                        // Navigation
-                    },
-
-                    onRetry = {
-                        viewModel.loadShows()
-                    }
-                )
-            }
+                AppNavigation()
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TVShowAppTheme {
-        Greeting("Android")
     }
 }

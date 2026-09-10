@@ -251,4 +251,7 @@ A fake API does not verify that the real Retrofit implementation communicates co
 - [Reflection](REFLECTION.md) — Reflection on the development process and technical decisions.
 - [Walkthrough Video](<YOUR_VIDEO_LINK>) — Short demonstration of the application and development process.
 
+## Author
+Anggito Sulistyo Adi
+
 

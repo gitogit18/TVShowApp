@@ -16,6 +16,20 @@ A simple Android TV show browser built with Kotlin and Jetpack Compose using the
 - MVVM architecture
 - Unit tests for the HomeViewModel
 
+| Home | Detail Movie | Loading Screen |
+|:---:|:---:|:---:|
+| <img width="250" alt="Homescreen" src="https://github.com/user-attachments/assets/ecbcca64-e3bb-4796-8834-17f8f05ebc19" />
+> | <img width="250" alt="Detail" src="https://github.com/user-attachments/assets/d36e57ad-fac0-4cd5-a9a8-2346ae050b91" />
+> | <img width="250" alt="Loading" src="https://github.com/user-attachments/assets/2ec49742-4f98-4d55-9caa-cd9129cf9b74" />
+ />
+ |
+
+| No Network Error | Share Movie |
+|:---:|:---:|
+| <img width="250" alt="NoNetwork" src="https://github.com/user-attachments/assets/8048c8be-6529-462b-8c1f-c4e02b5d0333" />
+> | <img width="250" alt="Share Movie" src="https://github.com/user-attachments/assets/bc98d493-c8f3-441c-be70-b4edafe02472" />
+>
+ 
 ## Tech Stack
 
 - Kotlin
@@ -249,7 +263,7 @@ A fake API does not verify that the real Retrofit implementation communicates co
 - [AI Usage Log](AI_LOG.md) — Documents how AI tools were used during development.
 - [Code Review](CODE_REVIEW.md) — Review of the provided AI-generated code and identified issues.
 - [Reflection](REFLECTION.md) — Reflection on the development process and technical decisions.
-- [Walkthrough Video](<YOUR_VIDEO_LINK>) — Short demonstration of the application and development process.
+- [Walkthrough Video](<https://youtu.be/8EEjdKxUTiY>) — Short demonstration of the application and development process.
 
 ## Author
 Anggito Sulistyo Adi

@@ -35,10 +35,11 @@ class DetailViewModel(
                 uiState = UiState.Success(show)
 
             } catch (e: Exception) {
-
-                uiState = UiState.Error(
-                    e.message ?: "Failed to load show"
-                )
+                val message = when (e) {
+                    is java.io.IOException -> "No Internet Connection, Please Check your connection."
+                    else -> e.message ?: "Failed to load show"
+                }
+                uiState = UiState.Error(message)
             }
         }
     }

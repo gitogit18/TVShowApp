@@ -57,9 +57,11 @@ class HomeViewModel(
                     )
                 )
             } catch (e: Exception) {
-                uiState = UiState.Error(
-                    e.message ?: "Failed to load shows, please try again"
-                )
+                val message = when (e) {
+                    is java.io.IOException -> "No Internet Connection, Please Check your connection."
+                    else -> e.message ?: "Failed to load shows, please try again"
+                }
+                uiState = UiState.Error(message)
             }
         }
     }

@@ -74,13 +74,15 @@ fun DetailScreen(
                     Text(
                         text = "Error Loading Details",
                         color = Color.White,
-                        style = MaterialTheme.typography.titleLarge
+                        style = MaterialTheme.typography.titleLarge,
+                        textAlign = TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = uiState.message,
                         color = Color.LightGray,
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.bodyMedium,
+                        textAlign = TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     Button(onClick = onRetry) {

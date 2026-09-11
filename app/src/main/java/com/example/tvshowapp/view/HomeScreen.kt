@@ -33,6 +33,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -72,10 +73,16 @@ fun HomeScreen(
 
                 is UiState.Error -> {
                     Column(
-                        modifier = Modifier.align(Alignment.Center),
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(24.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Text(text = uiState.message)
+                        Text(
+                            text = uiState.message,
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
                         Spacer(modifier = Modifier.height(16.dp))
                         Button(onClick = onRetry) {
                             Text("Retry")
